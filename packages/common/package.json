@@ -1,0 +1,17 @@
+{
+  "name": "common",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.738.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.0.2"
+  }
+}
