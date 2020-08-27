@@ -9,6 +9,10 @@
     "name": "Karl Saehun Chung",
     "email": "nycom13@gmail.com"
   },
+  "scripts": {
+    "register": "scripts/register.sh",
+    "unregister": "scripts/unregister.sh"
+  },
   "devDependencies": {
     "@types/jest": "^26.0.10",
     "@types/node": "^14.6.0",
