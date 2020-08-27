@@ -1,2 +1,1 @@
-import { test } from 'common';
-test();
+console.log(process.argv);
