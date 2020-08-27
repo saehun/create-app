@@ -1,5 +1,5 @@
-import * as fs from 'fs';
 import help from './help';
+import { spawn, spawnSync } from 'child_process';
 /**
  * this is main command router
  * implemented with zero dependencies
@@ -12,5 +12,9 @@ if (command === 'help' || command == null) {
   process.exit(0);
 }
 
-console.log('command', command);
-console.log('args', args);
+if (spawnSync('which', [`create-${command}`]).status) {
+  console.log(`command not found: ${command}`);
+  process.exit(1);
+}
+
+spawn(`create-${command}`, args, { stdio: 'inherit' });
