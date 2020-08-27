@@ -5,7 +5,7 @@
   "scripts": {
     "start": "ts-node src/index.ts",
     "build": "tsc",
-    "postbuild": "../common/scripts/postbuild.sh"
+    "postbuild": "../../scripts/postbuild.sh"
   },
   "devDependencies": {
     "typescript": "^4.0.2"
