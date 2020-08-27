@@ -12,3 +12,5 @@ dist
 
 # Ignore test artifacts
 artifacts
+
+yarn-error.log
