@@ -10,6 +10,13 @@ const ls = (path: string, type: 'file' | 'directory' | 'all' = 'all') =>
     .filter(f => (type === 'file' ? f.isFile() : type === 'directory' ? f.isDirectory() : true))
     .map(f => f.name);
 
+/**
+ * make directory recursive
+ *
+ * @param name - path name
+ *
+ * @deprecated - use fs.mkdir(p, {recursive:true}) instead
+ */
 const mkdir = (name: string) => {
   let base = process.cwd();
   const paths = name
