@@ -1,13 +1,17 @@
 {
-  "name": "lambda",
+  "name": "template",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "ts-node src/index.ts"
+    "start": "ts-node src/index.ts",
+    "build": "tsc"
   },
   "devDependencies": {
     "typescript": "^4.0.2"
+  },
+  "bin": {
+    "create-template": "dist/index.js"
   },
   "dependencies": {
     "common": "*"

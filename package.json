@@ -1,7 +1,7 @@
 {
   "name": "create-app",
   "version": "1.0.0",
-  "description": "Todo application toolchain",
+  "description": "Universal App scaffolder",
   "license": "MIT",
   "repository": "minidonut/create-app",
   "private": true,
