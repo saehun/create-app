@@ -1,0 +1,8 @@
+{
+  "name": "router",
+  "version": "1.0.0",
+  "license": "MIT",
+  "bin": {
+    "create": "router.sh"
+  }
+}

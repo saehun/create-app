@@ -1,11 +1,11 @@
 {
   "name": "template",
   "version": "1.0.0",
-  "main": "index.js",
   "license": "MIT",
   "scripts": {
     "start": "ts-node src/index.ts",
     "build": "tsc"
+    "postbuild": "../common/scripts/postbuild.sh"
   },
   "devDependencies": {
     "typescript": "^4.0.2"
