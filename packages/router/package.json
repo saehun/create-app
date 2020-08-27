@@ -2,7 +2,18 @@
   "name": "router",
   "version": "1.0.0",
   "license": "MIT",
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "build": "tsc",
+    "postbuild": "../common/scripts/postbuild.sh"
+  },
+  "devDependencies": {
+    "typescript": "^4.0.2"
+  },
   "bin": {
-    "create": "router.sh"
+    "create": "dist/index.js"
+  },
+  "dependencies": {
+    "common": "*"
   }
 }
