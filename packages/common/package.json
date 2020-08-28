@@ -9,7 +9,8 @@
     "build": "tsc"
   },
   "dependencies": {
-    "aws-sdk": "^2.738.0"
+    "aws-sdk": "^2.738.0",
+    "fp-ts": "^2.8.2"
   },
   "devDependencies": {
     "typescript": "^4.0.2"
