@@ -13,6 +13,7 @@
     "axios": "^0.20.0",
     "chalk": "^4.1.0",
     "change-case": "^4.1.1",
+    "execa": "^4.0.3",
     "fs-extra": "^9.0.1",
     "handlebars": "^4.7.6",
     "ora": "^5.0.0"
