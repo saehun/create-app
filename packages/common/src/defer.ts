@@ -5,7 +5,8 @@ export function defer(action: () => Promise<void>, message: string) {
   defered.push([action, message]);
 }
 
-process.on('uncaughtException', async function (error) {
+async function cleanUpGarbages(error: Error) {
+  console.log(`\n\n\n`);
   console.log(error);
 
   if (defered.length) {
@@ -19,8 +20,10 @@ process.on('uncaughtException', async function (error) {
   }
 
   process.exit(1);
-});
+}
 
+process.on('uncaughtException', cleanUpGarbages);
+process.on('unhandledRejection', cleanUpGarbages);
 /**
    
    const version = "1.0.0";
