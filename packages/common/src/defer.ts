@@ -10,7 +10,7 @@ async function cleanUpGarbages(error: Error) {
   console.log(error);
 
   if (defered.length) {
-    console.log(chalk.green('clean up garbages'));
+    console.log(chalk.yellowBright('\nclean up garbages'), '😔');
   }
 
   while (defered.length) {
