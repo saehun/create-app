@@ -34,9 +34,9 @@ export function file(path: string) {
   const fromRemote = async (url: string) => {
     const spinner = log('remote', path, url);
 
-    const { data } = await axios.get(url);
+    const { data } = await axios.get(url, { transformResponse: undefined });
 
-    save(path, JSON.stringify(data));
+    save(path, data);
     spinner.succeed();
 
     return;
