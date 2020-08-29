@@ -1,6 +1,7 @@
 import * as fs from 'fs-extra';
 import * as path from 'path';
 import { defer } from './defer';
+import * as ora from 'ora';
 
 const create = (projectName: string) => {
   const basePath = path.join(process.cwd(), projectName);
@@ -8,11 +9,13 @@ const create = (projectName: string) => {
     throw new Error(`directory already exist: ${basePath}`);
   }
 
+  let spinner = ora(`mkdir -p ${projectName}`);
   fs.ensureDirSync(basePath);
-  console.log(`mkdir -p ${projectName}`);
+  spinner.succeed();
 
+  spinner = ora(`cd ${projectName}`);
   process.chdir(basePath);
-  console.log(`cd ${projectName}`);
+  spinner.succeed();
 
   defer(() => fs.remove(basePath), `remove ${basePath}`);
 };
