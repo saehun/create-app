@@ -14,7 +14,11 @@ import { init, fromRoot, file, greet, context, config } from 'common';
   fromRoot.create(name);
 
   await file('src/index.ts').fromText(`console.log("hello ${name}");`);
+
+  // when filename and gist's file name doesn't match
   await file('package.json').fromGist({ id: '84cf4f084328f2044d26c3b849d0fada', filename: 'package.json-template-1' });
+
+  // get from gist
   await file('.editorconfig').fromGist('15626a36577e771d8323565cab3e4c63');
   await file('.eslintignore').fromGist('15626a36577e771d8323565cab3e4c63');
   await file('.eslintrc.js').fromGist('15626a36577e771d8323565cab3e4c63');
