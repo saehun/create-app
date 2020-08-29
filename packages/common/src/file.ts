@@ -50,5 +50,3 @@ export function file(path: string) {
 
   return { fromText, fromRemote, fromLocal };
 }
-
-file('src/hello.ts').fromText('console.log("hello world!")');
