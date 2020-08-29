@@ -7,8 +7,12 @@ import { format } from './format';
 import { defer } from './defer';
 
 const save = (path: string, data: string) => {
-  if (fs.existsSync(path)) throw new Error(`Cannot create ${path}: file already exist.`);
+  if (fs.existsSync(path)) {
+    throw new Error(`Cannot create ${path}: file already exist.`);
+  }
+
   fs.outputFileSync(path, format(data));
+
   const absolutePath = paths.resolve(path);
   defer(() => fs.remove(absolutePath), `remove ${absolutePath}`);
 };
