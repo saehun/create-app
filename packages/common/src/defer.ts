@@ -5,10 +5,12 @@ export function defer(action: () => Promise<void>, message: string) {
   defered.push([action, message]);
 }
 
-async function cleanUpGarbages(error: Error) {
-  console.log(`\n\n\n`);
-  console.log(error);
+export async function saveExit() {
+  cleanUpGarbages();
+  process.exit(1);
+}
 
+async function cleanUpGarbages() {
   if (defered.length) {
     console.log(chalk.yellowBright('\nclean up garbages'), '😔');
   }
@@ -18,12 +20,23 @@ async function cleanUpGarbages(error: Error) {
     await action();
     console.log(chalk.gray(`- ${message}`));
   }
-
-  process.exit(1);
 }
 
-process.on('uncaughtException', cleanUpGarbages);
-process.on('unhandledRejection', cleanUpGarbages);
+process.on('uncaughtException', async function (error) {
+  console.log(`\n\n\n`);
+  console.log(error);
+
+  await cleanUpGarbages();
+  process.exit(1);
+});
+
+process.on('unhandledRejection', async function (error) {
+  console.log(`\n\n\n`);
+  console.log(error);
+
+  await cleanUpGarbages();
+  process.exit(1);
+});
 /**
    
    const version = "1.0.0";
