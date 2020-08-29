@@ -44,6 +44,21 @@ export function file(path: string) {
     return;
   };
 
+  const fromGist = async (id: string, filename: string) => {
+    const spinner = log('gist', path, filename);
+
+    const { data } = await axios.get(`https://api.github.com/gists/${id}`);
+    const raw = data.files?.[filename]?.content;
+    if (!raw) {
+      throw new Error(`gist doesn't exist ${id}/${filename}`);
+    }
+
+    save(path, data);
+    spinner.succeed();
+
+    return;
+  };
+
   const fromLocal = async (path: string) => {
     const spinner = log('local', path, path);
 
@@ -55,5 +70,5 @@ export function file(path: string) {
     return;
   };
 
-  return { fromText, fromRemote, fromLocal };
+  return { fromText, fromRemote, fromLocal, fromGist };
 }
