@@ -3,12 +3,12 @@ import * as ora from 'ora';
 import { writeSync } from 'clipboardy';
 
 const git = ({ initialCommit = false }: { initialCommit?: boolean } = {}) => {
-  let spinner = ora('git init');
+  let spinner = ora('git init').start();
   execa.sync('git', ['init'], { stdio: 'ignore' });
   spinner.succeed();
 
   if (initialCommit) {
-    spinner = ora(`git add * && git commit -m 'Initialzie'`);
+    spinner = ora(`git add * && git commit -m 'Initialzie'`).start();
     execa.sync('git', ['add', '*'], { stdio: 'ignore' });
     execa.sync('git', ['commit', '-m', '"Initialize"'], { stdio: 'ignore' });
     spinner.succeed();
@@ -16,7 +16,7 @@ const git = ({ initialCommit = false }: { initialCommit?: boolean } = {}) => {
 };
 
 const yarn = () => {
-  const spinner = ora(`yarn install`);
+  const spinner = ora(`yarn install`).start();
   execa.sync('yarn', { stdio: 'ignore' });
   spinner.succeed();
 };

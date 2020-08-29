@@ -9,11 +9,11 @@ const create = (projectName: string) => {
     throw new Error(`directory already exist: ${basePath}`);
   }
 
-  let spinner = ora(`mkdir -p ${projectName}`);
+  let spinner = ora(`mkdir -p ${projectName}`).start();
   fs.ensureDirSync(basePath);
   spinner.succeed();
 
-  spinner = ora(`cd ${projectName}`);
+  spinner = ora(`cd ${projectName}`).start();
   process.chdir(basePath);
   spinner.succeed();
 
