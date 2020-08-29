@@ -5,7 +5,7 @@ export function defer(action: () => Promise<void>, message: string) {
   defered.push([action, message]);
 }
 
-export async function saveExit() {
+export async function exit() {
   cleanUpGarbages();
   process.exit(1);
 }
