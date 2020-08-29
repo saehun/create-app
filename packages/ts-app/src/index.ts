@@ -13,16 +13,17 @@ const gistUrls = {
 
   // inject local config to context
   context(config());
+  context.set('project-name', name);
 
   // create base directory
   fromRoot.create(name);
 
-  file('src/index.ts').fromText(`console.log("hello ${name}");`);
-  file('package.json').fromRemote(gistUrls['package.json']);
+  await file('src/index.ts').fromText(`console.log("hello ${name}");`);
+  await file('package.json').fromRemote(gistUrls['package.json']);
 
   init.yarn();
   init.git({ initialCommit: true });
-  init.nextCommand('yarn start');
+  init.nextCommand(`cd ${name} && yarn start`);
 
   greet.happyHacking();
 })();
