@@ -44,7 +44,7 @@ export function file(path: string) {
     return;
   };
 
-  const fromGist = async (id: string, filename: string) => {
+  const fromGist = async ({ id, filename }: { id: string; filename: string }) => {
     const spinner = log('gist', path, filename);
 
     const { data } = await axios.get(`https://api.github.com/gists/${id}`);
@@ -53,7 +53,7 @@ export function file(path: string) {
       throw new Error(`gist doesn't exist ${id}/${filename}`);
     }
 
-    save(path, data);
+    save(path, raw);
     spinner.succeed();
 
     return;
