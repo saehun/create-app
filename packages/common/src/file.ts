@@ -20,7 +20,7 @@ const save = (path: string, data: any) => {
 };
 
 const log = (type: string, path: string, source: string) => {
-  return ora(`create ${chalk.green(path)} from ${type} ` + chalk.greenBright(`'${source.slice(0, 40)}...'`)).start();
+  return ora(`create ${chalk.green(path)} from ${type} ` + chalk.greenBright(`'${source.slice(0, 40)}'`)).start();
 };
 
 export function file(path: string) {
@@ -45,7 +45,7 @@ export function file(path: string) {
   };
 
   const fromGist = async (url: string | { id: string; filename: string }) => {
-    let id = '';
+    let id = url;
     let filename = path;
     if (typeof url === 'object') {
       ({ id, filename } = url);
