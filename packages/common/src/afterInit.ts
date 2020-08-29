@@ -1,5 +1,6 @@
 import * as execa from 'execa';
 import * as ora from 'ora';
+import { writeSync } from 'clipboardy';
 
 const git = ({ initialCommit = false }: { initialCommit?: boolean } = {}) => {
   let spinner = ora('git init');
@@ -20,4 +21,9 @@ const yarn = () => {
   spinner.succeed();
 };
 
-export const init = { git, yarn };
+const nextCommand = (cmd: string) => {
+  writeSync(cmd);
+  console.log(`'${cmd}' to start your application (copied)`);
+};
+
+export const init = { git, yarn, nextCommand };

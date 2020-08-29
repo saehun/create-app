@@ -5,3 +5,4 @@ export { defer, exit } from './defer';
 export { file } from './file';
 export { format } from './format';
 export { fromRoot } from './fromRoot';
+export { greet } from './greet';
