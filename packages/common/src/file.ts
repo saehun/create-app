@@ -44,7 +44,13 @@ export function file(path: string) {
     return;
   };
 
-  const fromGist = async ({ id, filename }: { id: string; filename: string }) => {
+  const fromGist = async (url: string | { id: string; filename: string }) => {
+    let id = '';
+    let filename = path;
+    if (typeof url === 'object') {
+      ({ id, filename } = url);
+    }
+
     const spinner = log('gist', path, filename);
 
     const { data } = await axios.get(`https://api.github.com/gists/${id}`);
