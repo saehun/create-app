@@ -14,7 +14,7 @@ const save = (path: string, data: string) => {
   fs.outputFileSync(path, format(data));
 
   const absolutePath = paths.resolve(path);
-  defer(() => fs.remove(absolutePath), `remove ${absolutePath}`);
+  defer(() => fs.removeSync(absolutePath), `remove ${absolutePath}`);
 };
 
 const log = (type: string, path: string, source: string) => {
@@ -34,9 +34,9 @@ export function file(path: string) {
   const fromRemote = async (url: string) => {
     const spinner = log('remote', path, url);
 
-    const { data } = await axios.get(url, { transformResponse: undefined });
+    const { data } = await axios.get(url);
 
-    save(path, data);
+    save(path, JSON.stringify(data, undefined, 2));
     spinner.succeed();
 
     return;

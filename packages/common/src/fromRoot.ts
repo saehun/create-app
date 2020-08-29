@@ -17,7 +17,7 @@ const create = (projectName: string) => {
   process.chdir(basePath);
   spinner.succeed();
 
-  defer(() => fs.remove(basePath), `remove ${basePath}`);
+  defer(() => fs.removeSync(basePath), `remove ${basePath}`);
 };
 
 export const fromRoot = { create };

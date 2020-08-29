@@ -1,7 +1,7 @@
 import * as chalk from 'chalk';
-const defered: Array<[() => Promise<void>, string]> = [];
+const defered: Array<[() => void, string]> = [];
 
-export function defer(action: () => Promise<void>, message: string) {
+export function defer(action: () => void, message: string) {
   defered.push([action, message]);
 }
 
@@ -17,7 +17,7 @@ async function cleanUpGarbages() {
 
   while (defered.length) {
     const [action, message] = defered.pop()!;
-    await action();
+    action();
     console.log(chalk.gray(`- ${message}`));
   }
 }
