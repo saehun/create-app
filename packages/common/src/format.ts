@@ -4,7 +4,7 @@ import { exit } from './defer';
 
 export const format = (template: string) => {
   try {
-    return compile(template)(context.get());
+    return compile(template)(context.get()) + '\n';
   } catch (e) {
     console.log(e.message);
     exit();
