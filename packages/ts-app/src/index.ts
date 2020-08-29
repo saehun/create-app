@@ -1,7 +1,7 @@
 import { init, fromRoot, file, greet, context, config } from 'common';
 // prettier-ignore
 const gistUrls = {
-  'package.json': 'https://gist.githubusercontent.com/minidonut/84cf4f084328f2044d26c3b849d0fada/raw/f0503dde8b92d1d3c3ac060775523edb27685460/package.json-template-1',
+  'package.json': {id: "84cf4f084328f2044d26c3b849d0fada", filename: 'package.json-template-1' },
 } as const;
 
 (async function () {
@@ -19,7 +19,7 @@ const gistUrls = {
   fromRoot.create(name);
 
   await file('src/index.ts').fromText(`console.log("hello ${name}");`);
-  await file('package.json').fromRemote(gistUrls['package.json']);
+  await file('package.json').fromGist(gistUrls['package.json']);
 
   init.yarn();
   init.git({ initialCommit: true });
