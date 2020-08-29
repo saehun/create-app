@@ -6,12 +6,14 @@ import * as fs from 'fs-extra';
 import { format } from './format';
 import { defer } from './defer';
 
-const save = (path: string, data: string) => {
+const save = (path: string, data: any) => {
   if (fs.existsSync(path)) {
     throw new Error(`Cannot create ${path}: file already exist.`);
   }
 
-  fs.outputFileSync(path, format(data));
+  const source = typeof data !== 'string' ? JSON.stringify(data, undefined, 2) : data;
+
+  fs.outputFileSync(path, format(source));
 
   const absolutePath = paths.resolve(path);
   defer(() => fs.removeSync(absolutePath), `remove ${absolutePath}`);
@@ -36,7 +38,7 @@ export function file(path: string) {
 
     const { data } = await axios.get(url);
 
-    save(path, JSON.stringify(data, undefined, 2));
+    save(path, data);
     spinner.succeed();
 
     return;
