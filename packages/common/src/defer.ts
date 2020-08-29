@@ -20,3 +20,29 @@ process.on('uncaughtException', async function (error) {
 
   process.exit(1);
 });
+
+/**
+   
+   const version = "1.0.0";
+   const projectName = argv[2];
+   const xxxx = await ask('...');
+
+   context({
+      version, projectName, xxxx
+   })
+
+   fromRoot.create(projectName),
+   file('src/index.ts').fromText('...')
+   file('package.json').fromRemote('...')
+   
+
+*/
+
+/**
+   fromRoot.git(),
+   fromRoot.npm(),
+
+   init.git();
+   init.node();
+
+ */
