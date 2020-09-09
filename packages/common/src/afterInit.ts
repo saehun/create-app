@@ -10,7 +10,7 @@ const git = ({ initialCommit = false }: { initialCommit?: boolean } = {}) => {
   if (initialCommit) {
     spinner = ora(`git add * && git commit -m 'Initialzie'`).start();
     execa.sync('git', ['add', '*'], { stdio: 'ignore' });
-    execa.sync('git', ['commit', '-m', '"Initialize"'], { stdio: 'ignore' });
+    execa.sync('git', ['commit', '-m', 'Initialize'], { stdio: 'ignore' });
     spinner.succeed();
   }
 };
