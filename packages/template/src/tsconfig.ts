@@ -14,6 +14,9 @@ const simpleNode = `{
   },
   "include": [
     "src/**/*"
+  ],
+  "exclude": [
+    "**/*.test.ts"
   ]
 }`;
 
