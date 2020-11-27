@@ -25,7 +25,7 @@ const log = (type: string, path: string, source: string) => {
 
 export function file(path: string) {
   const fromText = async (text: string) => {
-    const spinner = log('text', path, text);
+    const spinner = log('text', path, '');
 
     save(path, text);
     spinner.succeed();

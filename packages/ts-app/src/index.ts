@@ -1,4 +1,16 @@
 import { init, fromRoot, file, greet, context, config } from 'common';
+import {
+  packageJson,
+  editorconfig,
+  eslintignore,
+  eslintrc,
+  gitignore,
+  jestConfig,
+  license,
+  prettierc,
+  tsconfig,
+  indexTestTs,
+} from './templates';
 (async function () {
   const name = process.argv[2];
   if (name == null) {
@@ -14,18 +26,16 @@ import { init, fromRoot, file, greet, context, config } from 'common';
   fromRoot.create(name);
 
   await file('src/index.ts').fromText(`console.log("hello ${name}");`);
-
-  // when filename and gist's file name doesn't match
-  await file('package.json').fromGist({ id: '84cf4f084328f2044d26c3b849d0fada', filename: 'package.json-template-1' });
-
-  // get from gist
-  await file('.editorconfig').fromGist('15626a36577e771d8323565cab3e4c63');
-  await file('.eslintignore').fromGist('15626a36577e771d8323565cab3e4c63');
-  await file('.eslintrc.js').fromGist('15626a36577e771d8323565cab3e4c63');
-  await file('.gitignore').fromGist('15626a36577e771d8323565cab3e4c63');
-  await file('.prettierrc.json').fromGist('15626a36577e771d8323565cab3e4c63');
-  await file('license').fromGist('15626a36577e771d8323565cab3e4c63');
-  await file('tsconfig.json').fromGist('15626a36577e771d8323565cab3e4c63');
+  await file('src/index.test.ts').fromText(indexTestTs);
+  await file('package.json').fromText(packageJson);
+  await file('.editorconfig').fromText(editorconfig);
+  await file('.eslintignore').fromText(eslintignore);
+  await file('.eslintrc.js').fromText(eslintrc);
+  await file('.gitignore').fromText(gitignore);
+  await file('.prettierrc.json').fromText(prettierc);
+  await file('license').fromText(license);
+  await file('tsconfig.json').fromText(tsconfig);
+  await file('jest.config.js').fromText(jestConfig);
 
   init.yarn();
   init.git({ initialCommit: true });
