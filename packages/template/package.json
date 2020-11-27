@@ -1,6 +1,7 @@
 {
   "name": "template",
   "version": "1.0.0",
+  "types": "dist/index.d.ts",
   "license": "MIT",
   "scripts": {
     "start": "ts-node src/index.ts",
@@ -9,11 +10,5 @@
   },
   "devDependencies": {
     "typescript": "^4.0.2"
-  },
-  "bin": {
-    "create-template": "dist/index.js"
-  },
-  "dependencies": {
-    "common": "*"
   }
 }
