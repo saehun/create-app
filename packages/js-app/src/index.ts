@@ -54,14 +54,14 @@ const packageJson = `{
 
   // get from gist
   await file('src/index.test.js').fromText(indexTest.pass);
-  await file('package.json').fromGist(packageJson);
+  await file('package.json').fromText(packageJson);
   await file('.editorconfig').fromText(editorconfig);
-  await file('.eslintignore').fromGist(eslintignore.base);
-  await file('.eslintrc.js').fromGist(eslintrc.javascript);
-  await file('.gitignore').fromGist(gitignore.base);
+  await file('.eslintignore').fromText(eslintignore.base);
+  await file('.eslintrc.js').fromText(eslintrc.javascript);
+  await file('.gitignore').fromText(gitignore.base);
   await file('.prettierrc.json').fromText(prettierc.base);
   await file('license').fromText(license.MIT);
-  await file('tsconfig.json').fromGist(tsconfig.javascript);
+  await file('tsconfig.json').fromText(tsconfig.javascript);
   await file('jest.config.js').fromText(jestConfig.javascript);
 
   init.yarn();
