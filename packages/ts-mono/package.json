@@ -1,0 +1,21 @@
+{
+  "name": "ts-mono",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "build": "tsc",
+    "postbuild": "../../scripts/postbuild.sh"
+  },
+  "devDependencies": {
+    "typescript": "^4.0.2"
+  },
+  "bin": {
+    "create-ts-mono": "dist/index.js"
+  },
+  "dependencies": {
+    "axios": "^0.20.0",
+    "common": "*",
+    "template": "*"
+  }
+}
