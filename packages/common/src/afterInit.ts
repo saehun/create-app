@@ -17,7 +17,7 @@ const git = ({ initialCommit = false }: { initialCommit?: boolean } = {}) => {
 
 const yarn = () => {
   const spinner = ora(`yarn install`).start();
-  execa.sync('yarn', { stdio: 'ignore' });
+  execa.sync('yarn', { stdio: 'inherit' });
   spinner.succeed();
 };
 
