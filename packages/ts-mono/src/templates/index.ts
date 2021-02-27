@@ -13,15 +13,15 @@ export const rootPackageJson = `{
   ],
   "devDependencies": {
     "@types/jest": "^26.0.20",
-    "@types/node": "^14.14.20",
-    "@typescript-eslint/eslint-plugin": "^4.12.0",
-    "@typescript-eslint/parser": "^4.12.0",
-    "eslint": "^7.17.0",
+    "@types/node": "^14.14.31",
+    "@typescript-eslint/eslint-plugin": "^4.15.2",
+    "@typescript-eslint/parser": "^4.15.2",
+    "eslint": "^7.20.0",
     "jest": "^26.6.3",
     "prettier": "^2.2.1",
-    "ts-jest": "^26.4.4",
+    "ts-jest": "^26.5.2",
     "ts-node": "^9.1.1",
-    "typescript": "^4.1.3",
+    "typescript": "^4.2.2"
     "lerna": "^3.22.1"
   }
 }`;
@@ -35,9 +35,9 @@ export const packageJson = `{
   "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/{{git-user-id}}/{{project-name}}", 
+    "url": "https://github.com/{{git-user-id}}/{{project-name}}",
     "directory": "packages/{{package-name}}"
-  }, 
+  },
   "scripts": {
     "build": "tsc",
     "test": "NODE_ENV=test jest",
