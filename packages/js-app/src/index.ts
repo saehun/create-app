@@ -29,9 +29,10 @@ const packageJson = `{
     "email": "{{git-user-email}}"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.14",
-    "eslint": "^7.9.0",
-    "jest": "^26.4.2",
+    "@types/jest": "^26.0.20",
+    "typescript": "^4.2.4",
+    "eslint": "^7.20.0",
+    "jest": "^26.6.3",
     "prettier": "^2.1.2"
   }
 }`;

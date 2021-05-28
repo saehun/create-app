@@ -18,18 +18,23 @@ const simpleNode = `{
   "exclude": [
     "**/*.test.ts"
   ]
-}`;
+}
+`;
 
 const javascript = `{
   "compilerOptions": {
-    "module": "commonjs",
     "target": "esnext",
-    "moduleResolution": "node"
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "typeRoots": ["./node_modules/@types"],
+    "noEmit": true,
+    "allowJs": true,
+    "checkJs": true,
+    "lib": [ "dom", "webworker", "es2017" ]
   },
-  "include": [
-    "src/**/*"
-  ]
-}`;
+  "include": ["*.js"]
+}
+`;
 
 export const tsconfig = {
   simpleNode,
