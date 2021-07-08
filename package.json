@@ -10,6 +10,7 @@
     "email": "nycom13@gmail.com"
   },
   "scripts": {
+    "build": "scripts/build-all.sh",
     "register": "scripts/register.sh",
     "unregister": "scripts/unregister.sh"
   },
