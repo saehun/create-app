@@ -5,7 +5,7 @@ const simpleNode = `{
     "noImplicitAny": true,
     "moduleResolution": "node",
     "strictNullChecks": true,
-    "sourceMap": false,
+    "sourceMap": true,
     "outDir": "dist",
     "declaration": true,
     "emitDecoratorMetadata": true,
