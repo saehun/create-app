@@ -18,16 +18,16 @@ export const packageJson = `{
     "email": "{{git-user-email}}"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.24",
-    "@types/node": "^16.0.1",
-    "@typescript-eslint/eslint-plugin": "^4.28.2",
-    "@typescript-eslint/parser": "^4.28.2",
-    "eslint": "^7.30.0",
-    "jest": "^27.0.6",
-    "prettier": "^2.3.2",
-    "ts-jest": "^27.0.3",
-    "ts-node": "^10.0.0",
-    "typescript": "^4.3.5"
+    "@types/jest": "^27.0.2",
+    "@types/node": "^16.9.4",
+    "@typescript-eslint/eslint-plugin": "^4.31.2",
+    "@typescript-eslint/parser": "^4.31.2",
+    "eslint": "^7.32.0",
+    "jest": "^27.2.1",
+    "prettier": "^2.4.1",
+    "ts-jest": "^27.0.5",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.3"
   },
   "eslintIgnore": [
     "*.js",
